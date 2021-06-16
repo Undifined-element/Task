@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <!--Css Link-->
+    <link href="styles.css" rel="stylesheet">
+    <!--Bootstrap 5.0 Link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+     <!--FONT AWSOME ICONS-->
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+</head>
+<body>
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ILLUME </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              All
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+            <li>
+                <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+          </li></ul>
+          <ul class="navbar-nav  my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+             <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-bell"></i></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Micheal cross</a>
+            </li>        
+              </ul>   
+        </div>
+    </div>
+  </nav>
+
+  <!--Sticky Navbar-->
+  <nav class="navbar  navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-white rounded">
+    <div class="container-fluid">      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="#"><i class="fas fa-chart-pie"></i> DASHBOARD</a>
+          <a class="nav-link" href="#"><i class="fas fa-search"></i> DIAGNOSTIC</a>
+          <a class="nav-link" href="#"><i class="fab fa-figma"></i> DESIGN ILT/VILT</a>
+          <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-truck"></i> DELIVERY</a>
+          <a class="nav-link" href="#"><i class="fas fa-crosshairs"></i> ASSESSOR</a>
+          <a class="nav-link" href="#"><i class="fas fa-scroll"></i> MY CERTIFICATES</a>
+          <a class="nav-link" href="#"><i class="fas fa-file-contract"></i> POLICY</a>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!--L1 & Friends-->
+
+  <div class="container sticky-top shadow-sm p-3 mb-5 bg-white rounded">
+      <div class="row justify-content-between">
+        <div class="col-8">
+            <div class="icon-flex">
+                <div class="icon-wrapper"><i class="fas fa-trophy"></i> L1 Diagnostics,L2 Diagnostics,<a href="#">More</a> 
+                    <i class="fas fa-suitcase"></i> Interview,FDG,Survey
+                    </div>
+                </div>                
+            </div>               
+           
+          <div class="col-4">
+              you have completed 12 for a program
+            <a href="#">Certificates</a>
+          </div>
+      </div>
+  </div>
+
+  <!--CARDS-->
+  <div class="container mt-2">
+    <!--   <div class="card card-block mb-2">
+        <h4 class="card-title">Card 1</h4>
+      </div>   -->
+      <div class="row">
+        <div class="col-md-3 col-sm-6 item">
+          <div class="card item-card card-block">
+          <h4 class="card-title text-right shadow-sm">Adherence Policy</h4>
+
+          <!--PIE Chart-->
+<div id="chartdiv">
+
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    
+    <!-- Chart code -->
+    <script>
+    am4core.ready(function() {
+    
+    // Themes begin
+    am4core.useTheme(am4themes_frozen);
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    var chart = am4core.create("chartdiv", am4charts.PieChart);
+    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+    
+    chart.data = [
+      {
+        country: "Poor",
+        value: 300
+      },
+      {
+        country: "Average",
+        value: 300
+      },
+      {
+        country: "Good",
+        value: 300
+      },
+     
+    ];
+    chart.radius = am4core.percent(70);
+    chart.innerRadius = am4core.percent(40);
+    chart.startAngle = 180;
+    chart.endAngle = 360;  
+    
+    var series = chart.series.push(new am4charts.PieSeries());
+    series.dataFields.value = "value";
+    series.dataFields.category = "country";
+    
+    series.slices.template.cornerRadius = 10;
+    series.slices.template.innerCornerRadius = 7;
+    series.slices.template.draggable = true;
+    series.slices.template.inert = true;
+    series.alignLabels = false;
+    
+    series.hiddenState.properties.startAngle = 90;
+    series.hiddenState.properties.endAngle = 90;
+    
+    chart.legend = new am4charts.Legend();
+    
+    }); // end am4core.ready()
+    </script>
+    
+        </div>
+    
+        
+            <h5 class="item-card-title mt-3 mb-3">12hrs Spent  • 12hrs Remains</h5>
+            
+      </div>
+
+
+
+        </div>
+        <div class="col-md-3 col-sm-6 item">
+          <div class="card item-card card-block ">
+          <h4 class="item-card-title shadow-sm">PAYOUT</h4>
+          
+     <!--PIE Chart-->
+<div id="chart2div">
+
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    
+    <!-- Chart code -->
+    <script>
+    am4core.ready(function() {
+    
+    // Themes begin
+    am4core.useTheme(am4themes_frozen);
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    var chart = am4core.create("chart2div", am4charts.PieChart);
+    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+    
+    chart.data = [
+      {
+        country: "0",
+        value: 400
+      },
+      {
+        country: "2000",
+        value: 200
+      },
+      {
+        country: "3000",
+        value: 600
+      },
+     
+    ];
+    chart.radius = am4core.percent(70);
+    chart.innerRadius = am4core.percent(40);
+    chart.startAngle = 0;
+    chart.endAngle = 360;  
+    
+    var series = chart.series.push(new am4charts.PieSeries());
+    series.dataFields.value = "value";
+    series.dataFields.category = "country";
+    
+    series.slices.template.cornerRadius = 10;
+    series.slices.template.innerCornerRadius = 7;
+    series.slices.template.draggable = true;
+    series.slices.template.inert = true;
+    series.alignLabels = false;
+    
+    series.hiddenState.properties.startAngle = 90;
+    series.hiddenState.properties.endAngle = 90;
+    
+    chart.legend = new am4charts.Legend();
+    
+    }); // end am4core.ready()
+    </script>
+    </div>       
+     <h5 class="card-title  mt-3 mb-3">INR 2000 recieved  ~ INR 3000 Pending</h5>
+     
+      </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 item">
+          <div class="card item-card card-block">
+          <h4 class="item-card-title shadow-sm ">BRD</h4>
+            <!--PIE Chart-->
+    <div id="chart3div">
+
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    
+    <!-- Chart code -->
+    <script>
+    am4core.ready(function() {
+    
+    // Themes begin
+    am4core.useTheme(am4themes_frozen);
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    var chart = am4core.create("chart3div", am4charts.PieChart);
+    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+    
+    chart.data = [
+      {
+        country: "completed",
+        value: 400
+      },
+      {
+        country: "completed",
+        value: 600
+      },
+      {
+        country: "",
+        value: 200
+      },
+     
+    ];
+    chart.radius = am4core.percent(70);
+    chart.innerRadius = am4core.percent(40);
+    chart.startAngle = 0;
+    chart.endAngle = 360;  
+    
+    var series = chart.series.push(new am4charts.PieSeries());
+    series.dataFields.value = "value";
+    series.dataFields.category = "country";
+    
+    series.slices.template.cornerRadius = 10;
+    series.slices.template.innerCornerRadius = 7;
+    series.slices.template.draggable = true;
+    series.slices.template.inert = true;
+    series.alignLabels = false;
+    
+    series.hiddenState.properties.startAngle = 90;
+    series.hiddenState.properties.endAngle = 90;
+    
+    chart.legend = new am4charts.Legend();
+    
+    }); // end am4core.ready()
+    </script>
+    
+        </div>
+
+            <h5 class="card-title  mt-3 mb-3">25 Selected ~ 10 Completed</h5>
+           
+      </div>
+        </div>
+        <div class="col-md-3 col-sm-6 item">
+          <div class="card item-card card-block">
+          <h4 class="item-card-title shadow-sm">BATCHES</h4>
+        <!--PIE Chart-->
+<div id="chart4div">
+
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    
+    <!-- Chart code -->
+    <script>
+    am4core.ready(function() {
+    
+    // Themes begin
+    am4core.useTheme(am4themes_frozen);
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    var chart = am4core.create("chart4div", am4charts.PieChart);
+    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+    
+    chart.data = [
+      {
+        country: "ILT",
+        value: 400
+      },
+      {
+        country: "VLT",
+        value: 600
+      },
+      {
+        country: "",
+        value: 200
+      },
+     
+    ];
+    chart.radius = am4core.percent(70);
+    chart.innerRadius = am4core.percent(40);
+    chart.startAngle = 0;
+    chart.endAngle = 360;  
+    
+    var series = chart.series.push(new am4charts.PieSeries());
+    series.dataFields.value = "value";
+    series.dataFields.category = "country";
+    
+    series.slices.template.cornerRadius = 10;
+    series.slices.template.innerCornerRadius = 7;
+    series.slices.template.draggable = true;
+    series.slices.template.inert = true;
+    series.alignLabels = false;
+    
+    series.hiddenState.properties.startAngle = 90;
+    series.hiddenState.properties.endAngle = 90;
+    
+    chart.legend = new am4charts.Legend();
+    
+    }); // end am4core.ready()
+    </script>
+    </div>
+    <h5 class="card-title  mt-3 mb-3">50 ILT ~ 50 VLT</h5>
+     </div>
+     </div>
+    </div> 
+    </div>
+
+<!--2nd Cards-->
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card text-center">
+          <div class="card-body">
+           <a> <i class="fas fa-comment-alt fa-3x circle-icon"></i> <h3>1,238</h3></a>
+            <h4>average feedback</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card text-center">
+          <div class="card-body">
+           <a> <i class="fas fa-users fa-3x circle-icon"></i> <h3>900</h3></a>
+            <h4>participants</h4>      
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-body">
+            <a> <i class="fas fa-comment-alt fa-3x circle-icon"></i> <h3>4,723</h3></a>
+            <h4>Program</h4>            
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--TAble snd Comments-->
+  
+    <div class="container">
+        
+        <div class="row">
+            <h3>ongoing Tickets</h3>
+          <div class="col-lg-8 ">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+                <table class="table table-bordered table-striped mb-0">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Second</th>
+                      <th scope="col">Third</th>
+                      <th scope="col">Fourth</th>
+                      <th scope="col">Fifth</th>
+                      <th scope="col">Sixth</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>@mdo</td>
+                      <td>@mdo</td>
+                      <td>@mdo</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Larry</td>
+                      <td>the Bird</td>
+                      <td>@twitter</td>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Thornton</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Thornton</td>
+                      <td>the Bird</td>
+                      <td>@twitter</td>
+                      <td>Mark</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                      <td>@twitter</td>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>Larry</td>
+                      <td>the Bird</td>
+                      <td>@twitter</td>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                      <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">8</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">9</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">10</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@twitter</td>
+                      </tr>
+
+                  </tbody>
+                </table>
+              
+              </div>
+          </div>
+          <div class="col-sm-4">
+            <h3>ongoing Tickets</h3>
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <div class="card">
+                <div class="card-horizontal">
+                    <div class="img">
+                        <img class="" src="https://images.unsplash.com/photo-1543967480-0c5062b30c83?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-horizontal">
+                    <div class="img">
+                        <img class="" src="https://images.unsplash.com/photo-1543967480-0c5062b30c83?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-horizontal">
+                    <div class="img">
+                        <img class="" src="https://images.unsplash.com/photo-1543967480-0c5062b30c83?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-horizontal">
+                    <div class="img">
+                        <img class="" src="https://images.unsplash.com/photo-1543967480-0c5062b30c83?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-horizontal">
+                    <div class="img">
+                        <img class="" src="https://images.unsplash.com/photo-1543967480-0c5062b30c83?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-horizontal">
+                    <div class="img">
+                        <img class="" src="https://images.unsplash.com/photo-1543967480-0c5062b30c83?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-horizontal">
+                    <div class="img">
+                        <img class="" src="https://images.unsplash.com/photo-1543967480-0c5062b30c83?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+        </div>
+
+            </div>
+            </div>
+            </div>
+
+
+
+                    
+      
+
+
+
+
+
+
+
+
+<!--Bootstrap 5.0 JS Bundle with popper-->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+   integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script> 
+</body>
+</html>
